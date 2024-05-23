@@ -5,13 +5,16 @@
              xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
              x:DataType="viewmodel:DetailViewModel"
              Title="DetailPage">
-    <VerticalStackLayout Padding="20">
+    
+    <!-- Properties of Detail Page -->
+        <VerticalStackLayout Padding="20">
         <Label 
             Text="{Binding Text}"
             FontSize="25"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-
+            
+    <!-- Back Button(Redundant because there is already a Backbutton provided by the API given by Android Emulator)-->
         <Button Text="Go Back"
                 Command="{Binding GoBackCommand}"/>
     </VerticalStackLayout>

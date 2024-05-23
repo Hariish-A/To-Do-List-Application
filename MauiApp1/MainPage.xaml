@@ -4,34 +4,41 @@
              x:Class="MauiApp1.MainPage"
              xmlns:viewmodel="clr-namespace:MauiApp1.ViewModel"
              x:DataType="viewmodel:MainViewModel">
-    
 
-    <Grid RowDefinitions="100, Auto, *"
+
+        <!-- Padding and Gap properties-->
+        <Grid RowDefinitions="100, Auto, *"
           ColumnDefinitions=".75*, .25*"
           Padding="10"
           RowSpacing="10"
           ColumnSpacing="10">
-
+            
+        <!-- Image properties-->
         <Image Grid.ColumnSpan="2"
                Source="to_do.png"
                BackgroundColor="Transparent"/>
 
+        <!-- Entry Field properties-->
         <Entry Placeholder="Enter Task"
                Text="{Binding Text}"
                Grid.Row="1"
                Margin="0,20,0,0"/>
-        
+
+        <!-- Button properties-->
         <Button Text="Add"
                 Command="{Binding AddCommand}"
                 Grid.Row="1"
                 Grid.Column="1"
                 Margin="0,20,0,0"/>
-
+            
+        
+        <!-- CollectionView properties(List down view)-->
         <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
                         ItemsSource="{Binding Items}"
                         SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="{x:Type x:String}">
+                    <!-- For Android Specifically which uses swipe functionality to navigate and doesnt work on mouse pointer for windows version-->
                     <SwipeView>
                         <SwipeView.RightItems>
                             <SwipeItems>
@@ -44,6 +51,7 @@
                         </SwipeView.RightItems>
                         <Grid Padding="0,5">
                             <Frame>
+                                <!-- Used to navigate to DetailPage -->
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:MainViewModel}}, Path= TapCommand}"

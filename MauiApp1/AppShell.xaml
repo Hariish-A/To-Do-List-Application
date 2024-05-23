@@ -7,6 +7,7 @@
     Shell.FlyoutBehavior="Disabled"
     Title="MauiApp1">
 
+    <!-- Home Page Shell Content-->
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
